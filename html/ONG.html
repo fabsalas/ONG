@@ -82,39 +82,28 @@
             </a>
         </div>
       <br>
-
-      <table class="table table-sm" id="clima">
-        <thead>
-          <tr>
-            <th scope="col">Codigo</th>
-            <th scope="col">Estación</th>
-            <th scope="col">Hora</th>
-            <th scope="col">Temp</th>
-            <th scope="col">Humedad</th>
-            <th scope="col">Estado</th>
-            <th scope="col">Icono</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="container">
+          
+           
+        <div class="row">
+          <table class="table table-sm" id="clima">
+            <thead>
+              <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Estación</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Temp</th>
+                <th scope="col">Humedad</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Icono</th>
+              </tr>
+            </thead>
+            <tbody>
+          
+            </tbody>
+          </table>
+        </div>
+      </div>
            
          
             
@@ -136,11 +125,24 @@
     <script type="text/javascript">
       $(document).ready(function() {
 
-        $.get()
+      
+   
+        $.get("https://api.gael.cloud/general/public/clima",
+        function(data){
+          //data captura los datos  que retorne el servicio
+          $.each(data,function(i,item){ //esto recorre el arreglo de items de la api
+            //console.log(item) para comprobar
+            $("#clima").append("<tr><td>"+item.Codigo+"</td><td>"+item.Estacion+"</td><td>"+item.HoraUpdate+
+                                "</td><td>"+item.Temp+"</td><td>"+item.Humedad+"</td><td>"+item.Estado+"</td><td>"+item.Icono+"</td></tr>");
+    
+          });
+      
+        });  
 
 
 
-      })
+   
+    })
     
     
     
