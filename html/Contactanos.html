@@ -84,11 +84,11 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="emil" placeholder="nombreemail@email.com">
+                <input type="email" class="form-control" id="email" placeholder="nombreemail@email.com">
               </div>
               <div class="form-group col-md-6">
-                <label for="inputAddress">Dirección</label>
-                <input type="text" class="form-control" id="inputDireccion" placeholder="Av. Siempre viva 123">
+                <label for="inputAddress">Número de telefono</label>
+                <input type="text" class="form-control" id="telefono" placeholder="9 534 736 89">
               </div>
               
                 <div class="form-group col-md-6">
@@ -132,6 +132,7 @@
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
@@ -144,7 +145,13 @@
            
             var nombre =""; // aqui almacenara el texto de validación
             var apellido ="";
+            var rut=""
+            var npasaporte ="";
+            var email ="";
+            var ciudad ="";
+            var comentario ="";
 
+            //validacion de nombre
             if($('#nombre').val().trim().length==0){
               nombre= "La casilla del nombre esta en vacia";
              
@@ -155,7 +162,7 @@
               $('#error').show(); //permite mostrar el div
               event.preventDefault();// evita el envio de los datos;
             }
-
+            //validacion de apellido
             if($('#apellido').val().trim().length==0){
               apellido= "La casilla del apellido esta en vacia";
             }
@@ -164,8 +171,57 @@
               $('#error').show(); 
               event.preventDefault();
             }
+          if ($('#multiCollapseExample1')) {
+              //validacion de rut numero 11
+
+              
+          }
+          
+
+
+          //validacion de n pasaporte no debe estar nulo
+          if($('#multiCollapseExample2')){
+            if($('#npasaporte').val().trim().length==0){
+              npasaporte= "La casilla del N° pasaporte esta en vacia";
+              }
+              if (npasaporte !="") {
+                $('#error').html(npasaporte);
+                $('#error').show(); 
+                event.preventDefault();
+              }
+          }
+
+            //validacion de email no debe ser nulo
+            if($('#email').val().trim().length==0){
+            email = "La casilla de Email esta en vacia";
+            }
+            if (email !="") {
+              $('#error').html(email);
+              $('#error').show(); 
+              event.preventDefault();
+            }
+
+          //validacion de ciudad de residencia
+          if($('#inputCiudad').val().trim().length==0){
+            ciudad= "La casilla de Ciudad esta en vacia";
+            }
+            if (ciudad !="") {
+              $('#error').html(ciudad);
+              $('#error').show(); 
+              event.preventDefault();
+            }
+
+          //validacion de al menos 50 caracteres comentario
         
-            
+          if($('#textarea').val().trim().length <=50){
+            comentario= "Casilla comentario debe tener al menos 50 caracteres";
+            }
+            if (comentario !="") {
+              $('#error').html(comentario);
+              $('#error').show(); 
+              event.preventDefault();
+            }
+
 
           });
     })
